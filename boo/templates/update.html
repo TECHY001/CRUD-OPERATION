@@ -1,0 +1,7 @@
+<form action="/update/{{data.id}}" method="POST" autocomplete="off" >
+	{% csrf_token %}
+	<h1> Hellow file upload</h1>
+	mobile <input type="number" name="mob" value="{{data.mobile}}"><br>
+keyboard <input type="text" name="keyboard" value="{{data.keyboard}}">
+    <button type="submit">update</button>
+</form>

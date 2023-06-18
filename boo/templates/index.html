@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style></style>
+<body>
+
+
+<form action="adddata" method="POST" autocomplete="off" >
+	{% csrf_token %}
+	<h1> Hellow file upload</h1>
+	mobile <input type="number" name="mob" id=""><br>
+keyboard <input type="text" name="keyboard" id="">
+    <button type="submit">save</button>
+</form>
+{% if datas %}
+<table border="2" style="cellsapcing=collapse">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>mob</th>
+			<th>key</th>
+			<th>update</th>
+			<th>delete</th>
+			
+
+		</tr>
+	</thead>
+	{% for data in datas %}
+	<tbody>
+		
+		
+			<tr>
+				<td>{{forloop.counter}}</td>
+				<td>{{data.mobile}}</td>
+				<td>{{data.keyboard}}</td>
+				<td><a href="update/{{data.id}}">update</a>
+					</td>
+					<td><a href="delete/{{data.id}}">delete</a>
+					</td>
+
+
+
+			</tr>
+		
+		
+	</tbody>	{% endfor %}
+</table>{% endif %}
+
+	
+</body>
+</html>
